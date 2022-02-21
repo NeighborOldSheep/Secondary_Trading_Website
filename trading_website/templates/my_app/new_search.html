@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeadies List</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <h2 style="text-align:center">{{ search | title }}</h2>
+        <div class="row">
+        {% for post in final_positings %}
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a>
+                    </div>
+                    <div class="card-content">
+                        <p>Test</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ post.1 }}">View listing: Price Test Price{{ post.2 }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+    {% endblock content %}
+</body>
+
+</html>

@@ -1,12 +1,82 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <title>Codedaddies List</title>
 </head>
+
 <body>
-    <h2>Testing to see if this works!</h2>
+
+    <nav>
+        <div class=" container nav-wrapper">
+            <a href="/" class="brand-logo">Codeaddies List</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/">Home </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center">What do you want to search for on Codedaddies list?</h1>
+        <div class="row">
+            <!-- flash_on -->
+            <div class="col s4">
+                <!-- Promo content 1 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: #EE5E73">flash_on</i>
+                    <p>Fast cragilist web scraper</p>
+                    <p class="ligth center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+            <!-- camera -->
+            <div class="col s4">
+                <!-- Promo content 1 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: orange">camera</i>
+                    <p>Fast cragilist web scraper</p>
+                    <p class="ligth center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+            <!-- camre -->
+            <div class="col s4">
+                <!-- Promo content 1 goes here -->
+                <div class="center">
+                    <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
+                    <p>Fast cragilist web scraper</p>
+                    <p class="ligth center">Scrape away right here with a beautiful GUI.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <h2 class="center">New Search</h2>
+            <form action="{% url 'new_search' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="search" placeholder="search">
+                <input type="text" name="min_price" placeholder="min price">
+                <input type="text" name="max_price" placeholder="max price">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+            </form>
+        </div>
+        
+        {% block content%}
+
+        {% endblock content %}
+    </div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>
