@@ -32,7 +32,7 @@ def new_search(request):
     #print(data)
 
     final_positings = []
-
+                
     for post in post_lisitings:
         post_title = post.find(class_="result-title").text
         post_url = post.find('a').get('href')
